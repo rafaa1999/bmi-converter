@@ -1,0 +1,11 @@
+FROM cypress/included:12.7.0
+
+WORKDIR /app
+
+COPY package.json package-lock.json /app/
+
+RUN npm install
+
+COPY . /app
+
+CMD ["npx", "cypress", "run"]
